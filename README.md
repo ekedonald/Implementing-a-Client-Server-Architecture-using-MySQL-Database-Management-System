@@ -52,8 +52,6 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 ### Step 2: Install MySQL Server Software on the MySQL Server Linux Server
 * SSH into the MySQL-Server Instance
 
-* Instance ID
-
 ### Step 3: Install MySQL Client Software on the MySQL Client Linux Server
 
 ### Step 4:
