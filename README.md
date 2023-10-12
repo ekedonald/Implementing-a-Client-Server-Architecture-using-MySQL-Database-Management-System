@@ -50,7 +50,7 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 ### Step 1: Create and configure two Linux-Based Virtual Servers (EC2 Instance in AWS)
 
 ### Step 2: Install MySQL Server Software on the MySQL Server Linux Server
-* SSH into the MySQL-Server Instance
+
 
 ### Step 3: Install MySQL Client Software on the MySQL Client Linux Server
 
