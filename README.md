@@ -277,7 +277,7 @@ hostname -i
 * On the terminal of the MySQL Client, run the following command to connect to the MySQL Server:
 
 ```bash
-sudo mysql -u <user_name_of_mysql_server> -h <ip_address_of_mysql_server> -p
+sudo mysql -u <username_of_mysql_server> -h <ip_address_of_mysql_server> -p
 ```
 
 * To check that you have successfully connected to the remote MySQL Server, run the following query:
