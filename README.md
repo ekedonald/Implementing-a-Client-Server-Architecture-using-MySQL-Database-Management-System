@@ -8,6 +8,8 @@ Clients and servers work together in a client-server architecture to enable comm
 
 A simple diagram of Web Client-Server Architecture is shown below:
 
+![client server architecture](./images/Client-Server.png)
+
 Here's how clients and servers work together:
 
 ### 1. Client Request
@@ -37,7 +39,11 @@ Here's how clients and servers work together:
 
 In the diagram below, a machine that is trying to access a website using a web browser or simply **curl** command is a client and it sends HTTP requests to a web server (Apache, Nginx, IIS or any other server) over the internet.
 
+![illustration 1](./images/illustration%201.png)
+
 If we extend this concept further and add a Database Server to our architecture, we can get the picture shown below:
+
+![illustration 2](./images/illustration%202.png)
 
 In this case, the Web Server has the role of the Client that connects and reads/writes to/from a Database (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and Database Server close to each other in a local network).
 
@@ -52,23 +58,41 @@ The following steps are taken to implement a basic Client-Server Architecture us
 
 * On the EC2 Dashboard, click on the Launch Instance button.
 
+![Launch Instance](./images/1.%20launch%20instance.png)
+
 * On the Name Box and Amazon Machine Image, type **mysql_server** and **ubuntu** respectively then select **2** as the number of Instances you want to create.
+
+![namebox, ami and number of instance](./images/1.%20namebox,%20ami,%20no%20of%20instances.png)
 
 * Select **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type** as the Amazon Machine Image.
 
+![ami_ubuntu server 22.04](./images/1.%20ami_ubuntu%20server%2022.04.png)
+
 * Click on create new key pair.
 
+![create new keypair](./images/1.%20create%20a%20keypair.png)
+
 * Give the key pair name a name of your choice (i.e client-server-key), select `RSA` as the key pair type and `.pem` as the key file format then click on **Create key pair**.
+
+![keypair name, RSA .pem](./images/1.%20keypair%20name,%20rsa,%20pem.png)
 
 * The key pair will be downloaded into the Downloads folder on your computer.
 
 * Click on the Launch Instance button.
 
+![launch instance button](./images/1.%20launch%20instance%20button.png)
+
 * On the EC2 Dashboard, click on the Instances tab to display all the Instances on your AWS console.
+
+![instance tab](./images/ec2%20dashboard.png)
 
 * You will notice there are 2 Instances named **mysql_server**, rename one of them to **mysql_client** by clicking on the pencil icon that appears right beside the name of the Instance.
 
+![display instances](./images/1.%20display%20all%20instances.png)
+
 * Click on the Instance ID of the **mysql_client** Instance and copy the **Private IPv4 address**.
+
+![client ip address](./images/1.%20mysql%20client%20ip%20address.png)
 
 ### Step 2: Allow MySQL connection from the MySQL Client's IPv4 Address on the MySQL Server
 
