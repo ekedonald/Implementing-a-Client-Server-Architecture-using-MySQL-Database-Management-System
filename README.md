@@ -39,7 +39,7 @@ In the diagram below, a machine that is trying to access a website using a web b
 
 If we extend this concept further and add a Database Server to our architecture, we can get the picture shown below:
 
-In this case, the Web Server has the role of the **Client** that connects and reads/writes to/from a Database (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and Database Server close to each other in a local network).
+In this case, the Web Server has the role of the Client that connects and reads/writes to/from a Database (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and Database Server close to each other in a local network).
 
 The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web and Database Servers from Small Page Applications to Large and Complex Portals).
 
