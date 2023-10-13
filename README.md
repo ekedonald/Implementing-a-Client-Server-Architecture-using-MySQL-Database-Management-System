@@ -10,19 +10,19 @@ A simple diagram of Web Client-Server Architecture is shown below:
 Here's how clients and servers work together:
 
 ### 1. Client Request
-* The client initiates the communication by sending a request to the server. This request typically specifies what the client needs, such as a web page, an email, a file, or a database query.
+* The client initiates the communication by sending a request to the server. This request typically specifies what the client needs such as a web page, an email, a file or a database query.
 
 * The request includes information like the type of service required, any parameters, and other relevant data.
 
 ### 2. Server Response
 * The server receives the client's request and processes it based on the service or resource requested.
 
-* The server performs the necessary operations to generate a response, which could be data, content, or an acknowledgment.
+* The server performs the necessary operations to generate a response, which could be data, content or an acknowledgment.
 
 ### 3. Data Transmission
 * The server sends the response back to the client over the network.
 
-* The client receives and processes the response. This may involve rendering a web page, displaying an email, saving a file, or presenting data.
+* The client receives and processes the response. This may involve rendering a web page, displaying an email, saving a file or presenting data.
 
 ### 4. Interaction
 * The client and server can engage in a back-and-forth interaction, with the client making additional requests and the server providing responses as needed.
@@ -30,7 +30,7 @@ Here's how clients and servers work together:
 * This interaction continues until the client's requirements are met or until the client chooses to terminate the connection.
 
 ### 5. Statelessness
-* In many client-server interactions, the server is stateless, meaning it doesn't retain information about previous requests from the same client. Each request from the client is independent, and the client must include any necessary context or session information.
+* In many client-server interactions, the server is stateless, meaning it doesn't retain information about previous requests from the same client. Each request from the client is independent and the client must include any necessary context or session information.
 
 * However, stateful communication is also possible, where the server maintains some level of session state between requests.
 
@@ -40,7 +40,7 @@ If we extend this concept further and add a Database Server to our architecture,
 
 In this case, the Web Server has a role of the **Client** that connects and read/writes to/from a Databse (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and DB Server close to each other in a local network).
 
-The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies i.e. various Web abnd DB Servers from Small Page Applications to Large and Complex Portals.
+The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web abnd DB Servers from Small Page Applications to Large and Complex Portals).
 
 
 ## Implementing a Client Server Architecture using MySQL Database Management System (DBMS)
