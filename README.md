@@ -128,16 +128,101 @@ However, it is best practce to set security precautions such as **Firewall Rules
 ```bash
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf 
 ```
-* Log into the MySQL console by ruuning the command shown below:
+* Log into the MySQL console by running the command shown below:
 
 ```bash
 sudo mysql
 ```
 
+* Run a security script that sets the password (i.e. `PassWord.1`) for the root user using the following command:
+
+```bash
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
+```
+
+* Exit the MySQL console using the following command:
+
+```bash
+mysql > exit;
+```
+
+* Enable the MySQL servive using the following command:
+
+```bash
+sudo systemctl enable mysql
+```
+
+* Run the following command to check if the MySQL service is running:
+
+```bash
+sudo systemctl status mysql
+```
+
+From the image above, it is evident that the MySQL service is running.
+
+* Run the following command to start the interactive script to improve the security of the MySQL-Server installation:
+
+```bash
+sudo mysql_secure_installation
+```
+The script will give the following prompts and your responses should be as follows:
+1. Validate the password `y`.
+
+2. Select the level of password validation policy that matches the password you set initially, in this case **2** matches the password I chose hence enter `2`.
+
+3. Change the root password `n`.
+
+4. Remove anonymous users `n`.
+
+5. Disallow root login remotely `n`.
+
+6. Remove test database and access to it `y`.
+
+7. Reload privilege tables `y`.
+
+* Log into the MySQL console with the following command:
+
+```bash
+sudo mysql -u root -p
+```
+
+* Run the following command to create a user named *donald* with the password *PassWord.1*:
+
+```bash
+CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
+```
+
+*Note that the `%` wildcard after the `@` sign is used to represent any host. This means the user "donald" is allowed to connect to the MySQL-Server from any host.*
+
+* Run the folowing command to create a database called **testing_123**:
+
+```bash
+CREATE DATABASE testing_123;
+```
+
+* Run the following command to grant all privileges to the user **donald**:
+
+```bash
+GRANT ALL PRIVILEGES ON *.* TO 'donald'@'%' WITH GRANT OPTION;
+```
+
+*Note that the `*.*` wildcard means all databases and tables. Hence, the command above gives the user **donald** administrative privileges on all databases and tables.*
+
+* Run the following command to apply and make changes effective:
+
+```bash
+FLUSH PRIVILEGES;
+```
+
+* Exit the MySQL console.
+
+
+* Restart the MySQL service using the command shown below:
+
+```bash
+sudo systemctl restart mysql
+```
+
 ### Step 4: Install MySQL-Client Software on the MySQL-Client Linux Server
 
 ### Step 5:
-
-GRANT ALL PRIVILEGES ON *.* TO 'donald'@'%' WITH GRANT OPTION;
-
-CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
