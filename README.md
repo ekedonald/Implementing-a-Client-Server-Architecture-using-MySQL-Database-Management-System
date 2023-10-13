@@ -98,13 +98,23 @@ The following steps are taken to implement a basic Client-Server Architecture us
 
 * Click on the Instance ID of the **mysql_server** Instance.
 
+![instance id mysql server](./images/2.%20instance%20id%20mysql_server.png)
+
 * Click on the Security tab and then click on the Security group.
+
+![security tab and group](./images/2.%20security%20tab%20group.png)
 
 * Click on Edit Inbound Rules.
 
+![edit inbound rules](./images/2.%20edit%20inbound%20rules.png)
+
 * Click on the Add Rule button.
 
+![add rule](./images/2.%20add%20rule.png)
+
 * Select **MySQL/Aurora** as the connection type and paste the **MySQL-Client IPv4 address** you copied into the Custom IPv4 address box and click on the **save rules** button.
+
+![select mysql and custom client ip address](./images/2.%20select%20mysql%20and%20custom%20ip%20address.png)
 
 
 ### Step 3: Install MySQL-Server Software on the MySQL Server Linux Server
