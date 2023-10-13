@@ -159,7 +159,7 @@ sudo apt install mysql-server -y
 
 In MySQL, the bind-address parameter in the `mysqld.cnf` file is used to specify the IP address on which the MySQL server should listen for incoming connections. Its default setting is `bind-address  = 127.0.0.1`.
 
-To listen to all connections from all available network interfaces, the default bind address parameter is changed to `0.0.0.0` (i.e. Default Gateway). 
+To listen to all connections from all available network interfaces, the default bind-address parameter is changed to `0.0.0.0` (i.e. Default Gateway). 
 
 However, it is best practice to set security precautions such as **Firewall Rules** and **MySQL User Privileges** to control incoming connections to the remote server. In our case, we set security precautions by configuring the **Inbound Rules** on the **MySQL TCP port** to only allow connections from the **MySQL Client Private IPv4 Address** on the **MySQL Server**.
 
