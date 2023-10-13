@@ -44,9 +44,9 @@ In this case, the Web Server has a role of the **Client** that connects and read
 The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web abnd DB Servers from Small Page Applications to Large and Complex Portals).
 
 
-## Implementing a Client Server Architecture using MySQL Database Management System (DBMS)
+## Implementing a Client-Server Architecture using MySQL Database Management System (DBMS)
 
-The following steps are taken to implement a basic Client-Server using MySQL Relational Database Management System (RDBMS):
+The following steps are taken to implement a basic Client-Server Architecture using MySQL Relational Database Management System (RDBMS):
 
 ### Step 1: Create and configure two Linux-Based Virtual Servers (EC2 Instance in AWS)
 
@@ -60,13 +60,13 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 
 * Give the key pair name a name of your choice (i.e client-server-key), select **RSA** as the key pair type and **.pem** as the key file format then click on **Create key pair**.
 
-* The key pair will be donwloaded to the Downloads folder on your computer.
+* The key pair will be downloaded into the Downloads folder on your computer.
 
 * Click on the Launch Instance button.
 
 * On the EC2 Dashboard, click on the Instances tab to display all the Instances on your AWS console.
 
-* You will notice there are 2 Instances named **mysql_server**, rename one of them to **mysql_client** by clicking on the pencil icon that appears right after the name of the Instance.
+* You will notice there are 2 Instances named **mysql_server**, rename one of them to **mysql_client** by clicking on the pencil icon that appears right beside the name of the Instance.
 
 * Click on the Instance ID of the **mysql_client** Instance and copy the **Private IPv4 address**.
 
@@ -80,14 +80,16 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 
 * Click on the Add Rule button.
 
-* Select **MySQL/Aurora** as the connection type and paste the **MySQL-Client IPv4 address** you copied into the Custom IPv$ adress box and click on the **save rules** button.
+* Select **MySQL/Aurora** as the connection type and paste the **MySQL-Client IPv4 address** you copied into the Custom IPv4 address box and click on the **save rules** button.
 
 
 ### Step 3: Install MySQL-Server Software on the MySQL-Server Linux Server
 
 * Click on the Instance ID of the **mysql_server**.
 
-* CLick on the **Connect** button and copy the hightlighted commands shown below:
+* Click on the **Connect** button.
+
+* Copy the hightlighted commands shown below:
 
 * Open your terminal.
 
@@ -103,7 +105,7 @@ cd Downloads
 sudo chmod 400 <private-key-pair-name).pem
 ```
 
-* SSH into the MySQL-Server Instance using the command shown below:
+* SSH into the MySQL Server Instance using the command shown below:
 
 ```bash
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
@@ -125,13 +127,14 @@ In MySQL, the bind address parameter in the `mysqld.cnf` file is used to specify
 
 In other to listen to all connections from all avaialable network interfaces, the default bind address parameter is changed to `0.0.0.0` (i.e. Default Gateway). 
 
-However, it is best practce to set security precautions such as **Firewall Rules**, **MySQL User Privileges** and in our case, we set security precautions by setting the **Inbound Rules** on the **MySQL TCP port** to only allow conections from the **MySQL-Client** on the **MySQL-Server**.
+However, it is best practce to set security precautions such as **Firewall Rules**, **MySQL User Privileges** and in our case, we set security precautions by setting the **Inbound Rules** on the **MySQL TCP port** to only allow conections from the **MySQL-Client Private IPv4 Address** on the **MySQL-Server**.
 
 * Run the following command to open the MySQL configuration file to change the **bind address**.
 
 ```bash
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf 
 ```
+
 * Log into the MySQL console by running the command shown below:
 
 ```bash
@@ -164,7 +167,7 @@ sudo systemctl status mysql
 
 From the image above, it is evident that the MySQL service is running.
 
-* Run the following command to start the interactive script to improve the security of the MySQL-Server installation:
+* Run the following command to start the interactive script to improve the security of the MySQL Server installation:
 
 ```bash
 sudo mysql_secure_installation
@@ -190,15 +193,15 @@ The script will give the following prompts and your responses should be as follo
 sudo mysql -u root -p
 ```
 
-* Run the following command to create a user named *donald* with the password *PassWord.1*:
+* Run the following command to create a user named `donald` with the password `PassWord.1`:
 
 ```bash
 CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 ```
 
-*Note that the `%` wildcard after the `@` sign is used to represent any host. This means the user "donald" is allowed to connect to the MySQL-Server from any host.*
+*Note that the `%` wildcard after the `@` sign is used to represent any host. This means the user "donald" is allowed to connect to the MySQL Server from any host.*
 
-* Run the folowing command to create a database called **testing_123**:
+* Run the following command to create a database called `testing_123`:
 
 ```bash
 CREATE DATABASE testing_123;
@@ -227,14 +230,15 @@ FLUSH PRIVILEGES;
 sudo systemctl restart mysql
 ```
 
-### Step 4: Install MySQL-Client Software on the MySQL-Client Linux Server
-* Open another terminal on your computer.
+### Step 4: Install MySQL Client Software on the MySQL-Client Linux Server
 
 * Click on the Instance ID of the **mysql_client**.
 
-* CLick on the **Connect** button and copy the hightlighted commands shown below:
+* Click on the **Connect** button 
 
-* Open your terminal.
+* Copy the hightlighted command shown below:
+
+* Open another terminal on your computer.
 
 * Go to the directory (i.e. /Downloads) where the `.pem` key pair is stored using the command shown below:
 
@@ -242,13 +246,7 @@ sudo systemctl restart mysql
 cd Downloads
 ```
 
-* Paste the following command to give read permissions to the `.pem` key pair file:
-
-```bash
-sudo chmod 400 <private-key-pair-name).pem
-```
-
-* SSH into the MySQL-Client Instance using the command shown below:
+* SSH into the MySQL Client Instance using the command shown below:
 
 ```bash
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
@@ -260,7 +258,7 @@ ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
 sudo apt update
 ```
 
-* Run the MySQL-Client package installation.
+* Run the MySQL Client package installation.
 
 ```bash
 sudo apt install mysql-client -y
@@ -287,4 +285,4 @@ sudo mysql -u <user_name_of_mysql_server> -h <ip_address_of_mysql_server> -p
 SHOW DATABASES;
 ```
 
-From the image above, you can see the **testing_123** database you created on the MySQL Server. Hence, connection to the remote **MySQL Server** from the **MySQL Client** was successful.
+From the image above, you can see the `testing_123` database you created on the MySQL Server. Hence, connection to the remote **MySQL Server** from the **MySQL Client** was successful.
