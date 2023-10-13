@@ -11,7 +11,7 @@ A simple diagram of Web Client-Server Architecture is shown below:
 Here's how clients and servers work together:
 
 ### 1. Client Request
-* The client initiates the communication by sending a request to the server. This request typically specifies what the client needs such as a web page, an email, a file or a database query.
+* The client initiates communication by sending a request to the server. This request typically specifies what the client needs such as a web page, an email, a file or a database query.
 
 * The request includes information like the type of service required, any parameters, and other relevant data.
 
