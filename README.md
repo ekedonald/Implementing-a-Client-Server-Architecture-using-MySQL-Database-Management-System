@@ -58,6 +58,8 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 
 * Give the key pair name a name of your choice (i.e client-server-key), select **RSA** as the key pair type and **.pem** as the key file format then click on **Create key pair**.
 
+* The key pair will be donwloaded to the Downloads folder on your computer.
+
 * Click on the Launch Instance button.
 
 * On the EC2 Dashboard, click on the Instances tab to display all the Instances on your AWS console.
@@ -66,12 +68,73 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 
 * Click on the Instance ID of the **mysql_client** Instance and copy the **Private IPv4 address**.
 
-### Step 2: Allow MySQL connection from MySQL Client on the MySQL Server
-* 
+### Step 2: Allow MySQL connection from the MySQL Client IPv4 Address on the MySQL Server
+* Click on the Instance ID of the **mysql_server** Instance.
 
-### Step 3: Install MySQL Server Software on the MySQL Server Linux Server
+* Click on the Security tab and then click on the Security group.
 
-### Step 4: Install MySQL Client Software on the MySQL Client Linux Server
+* Click on Edit Inbound Rules.
+
+* Click on the Add Rule button.
+
+* Select **MySQL/Aurora** as the connection type and paste the **MySQL-Client IPv4 address** you copied into the Custom IPv$ adress box and click on the **save rules** button.
+
+
+### Step 3: Install MySQL-Server Software on the MySQL-Server Linux Server
+* Click on the Instance ID of the **mysql_server**.
+
+* CLick on the **Connect** button and copy the hightlighted commands shown below:
+
+* Open your terminal.
+
+* Go to the directory (i.e. /Downloads) where the `.pem` key pair is stored using the command shown below:
+
+```bash
+cd Downloads
+```
+
+* Paste the following command to give read permissions to the `.pem` key pai file:
+
+```bash
+sudo chmod 400 <private-key-pair-name).pem
+```
+
+* SSH into the MySQL-Server Instance using the command shown below:
+
+```bash
+ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
+```
+
+* Update the list of packages in the package manager.
+
+```bash
+sudo apt update
+```
+
+* Run the MySQL-Server package installation.
+
+```bash
+sudo apt install mysql-server -y
+```
+
+In MySQL, the bind address parameter in the `mysqld.cnf` file is used to specify the IP address on which the MySQL server should listen for incoming connections. Its default setting is `bind-address  = 127.0.0.1`.
+
+In other to listen to all connections from all avaialable network interfaces, the default bind address parameter is changed to `0.0.0.0` (i.e. Default Gateway). 
+
+However, it is best practce to set security precautions such as **Firewall Rules**, **MySQL User Privileges** and in our case, we set security precautions by setting the **Inbound Rules** on the **MySQL TCP port** to only allow conections from the **MySQL-Client** on the **MySQL-Server**.
+
+* Run the following command to change the **bind address**.
+
+```bash
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf 
+```
+* Log into the MySQL console by ruuning the command shown below:
+
+```bash
+sudo mysql
+```
+
+### Step 4: Install MySQL-Client Software on the MySQL-Client Linux Server
 
 ### Step 5:
 
