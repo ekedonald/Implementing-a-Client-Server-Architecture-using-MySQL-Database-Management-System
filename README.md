@@ -48,14 +48,32 @@ The setup on the diagram above is a typical generic Web Stack architecture (LAMP
 The following steps are taken to implement a basic Client-Server using MySQL Relational Database Management System (RDBMS):
 
 ### Step 1: Create and configure two Linux-Based Virtual Servers (EC2 Instance in AWS)
+* On the EC2 Dashboard, click on then Launch Instance button.
 
-* Rename the 2nd EC2 Instance to MySQL-Client
+* On the Name Box and Amazon Machine Image, type **mysql_server** and **ubuntu** respectively then select **2** as the number of Instances you want to create.
 
-### Step 2: Install MySQL Server Software on the MySQL Server Linux Server
+* Select **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type**  as the Amazon Machine Image.
 
-### Step 3: Install MySQL Client Software on the MySQL Client Linux Server
+* Click on create new key pair.
 
-### Step 4:
+* Give the key pair name a name of your choice (i.e client-server-key), select **RSA** as the key pair type and **.pem** as the key file format then click on **Create key pair**.
+
+* Click on the Launch Instance button.
+
+* On the EC2 Dashboard, click on the Instances tab to display all the Instances on your AWS console.
+
+* You will notice there are 2 Instances named **mysql_server**, rename one of them to **mysql_client** by clicking on the pencil icon that appears right after the name of the Instance.
+
+* Click on the Instance ID of the **mysql_client** Instance and copy the **Private IPv4 address**.
+
+### Step 2: Allow MySQL connection from MySQL Client on the MySQL Server
+* 
+
+### Step 3: Install MySQL Server Software on the MySQL Server Linux Server
+
+### Step 4: Install MySQL Client Software on the MySQL Client Linux Server
+
+### Step 5:
 
 GRANT ALL PRIVILEGES ON *.* TO 'donald'@'%' WITH GRANT OPTION;
 
