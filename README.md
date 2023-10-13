@@ -57,8 +57,6 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 
 ### Step 4:
 
-hostname -i
-
 GRANT ALL PRIVILEGES ON *.* TO 'donald'@'%' WITH GRANT OPTION;
 
 CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
