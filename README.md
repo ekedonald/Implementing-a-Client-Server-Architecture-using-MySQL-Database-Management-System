@@ -6,7 +6,7 @@ Client-Server refers to an architecture in which two or more computers are conne
 
 Clients and servers work together in a client-server architecture to enable communication, data exchange and the provision of services over a network. This interaction is a fundamental concept in modern computing and is used in various applications, including web browsing, file sharing and database access. 
 
-A simple diagram of Web Client-Server Architecture is shown below:
+A simple diagram of a Web Client-Server Architecture is shown below:
 
 ![client server architecture](./images/Client-Server.png)
 
