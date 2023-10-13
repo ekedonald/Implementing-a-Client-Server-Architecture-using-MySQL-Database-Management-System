@@ -13,7 +13,7 @@ Here's how clients and servers work together:
 ### 1. Client Request
 * The client initiates communication by sending a request to the server. This request typically specifies what the client needs such as a web page, an email, a file or a database query.
 
-* The request includes information like the type of service required, any parameters, and other relevant data.
+* The request includes information like the type of service required, any parameters and other relevant data.
 
 ### 2. Server Response
 * The server receives the client's request and processes it based on the service or resource requested.
@@ -39,9 +39,9 @@ In the diagram below, a machine that is trying to access a website using a web b
 
 If we extend this concept further and add a Database Server to our architecture, we can get the picture shown below:
 
-In this case, the Web Server has the role of the **Client** that connects and reads/writes to/from a Database (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and DB Server close to each other in a local network).
+In this case, the Web Server has the role of the **Client** that connects and reads/writes to/from a Database (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and Database Server close to each other in a local network).
 
-The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web and DB Servers from Small Page Applications to Large and Complex Portals).
+The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web and Database Servers from Small Page Applications to Large and Complex Portals).
 
 
 ## Implementing a Client-Server Architecture using MySQL Database Management System (DBMS)
@@ -52,9 +52,9 @@ The following steps are taken to implement a basic Client-Server Architecture us
 
 * On the EC2 Dashboard, click on the Launch Instance button.
 
-* On the Name Box and Amazon Machine Image, type `mysql_server` and `ubuntu` respectively then select `2` as the number of Instances you want to create.
+* On the Name Box and Amazon Machine Image, type **mysql_server** and **ubuntu** respectively then select **2** as the number of Instances you want to create.
 
-* Select `Ubuntu Server 22.04 LTS (HVM), SSD Volume Type` as the Amazon Machine Image.
+* Select **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type** as the Amazon Machine Image.
 
 * Click on create new key pair.
 
@@ -66,9 +66,9 @@ The following steps are taken to implement a basic Client-Server Architecture us
 
 * On the EC2 Dashboard, click on the Instances tab to display all the Instances on your AWS console.
 
-* You will notice there are 2 Instances named `mysql_server`, rename one of them to `mysql_client` by clicking on the pencil icon that appears right beside the name of the Instance.
+* You will notice there are 2 Instances named **mysql_server**, rename one of them to **mysql_client** by clicking on the pencil icon that appears right beside the name of the Instance.
 
-* Click on the Instance ID of the `mysql_client` Instance and copy the `Private IPv4 address`.
+* Click on the Instance ID of the **mysql_client** Instance and copy the **Private IPv4 address**.
 
 ### Step 2: Allow MySQL connection from the MySQL Client's IPv4 Address on the MySQL Server
 
@@ -80,7 +80,7 @@ The following steps are taken to implement a basic Client-Server Architecture us
 
 * Click on the Add Rule button.
 
-* Select `MySQL/Aurora` as the connection type and paste the `MySQL-Client IPv4 address` you copied into the Custom IPv4 address box and click on the **save rules** button.
+* Select **MySQL/Aurora** as the connection type and paste the **MySQL-Client IPv4 address** you copied into the Custom IPv4 address box and click on the **save rules** button.
 
 
 ### Step 3: Install MySQL-Server Software on the MySQL Server Linux Server
@@ -127,9 +127,9 @@ In MySQL, the bind-address parameter in the `mysqld.cnf` file is used to specify
 
 To listen to all connections from all available network interfaces, the default bind address parameter is changed to `0.0.0.0` (i.e. Default Gateway). 
 
-However, it is best practice to set security precautions such as **Firewall Rules** and **MySQL User Privileges** to control incoming connections to the remote server. In our case, we set security precautions by configuring the `Inbound Rules` on the `MySQL TCP port` to only allow connections from the **MySQL Client Private IPv4 Address** on the **MySQL Server**.
+However, it is best practice to set security precautions such as **Firewall Rules** and **MySQL User Privileges** to control incoming connections to the remote server. In our case, we set security precautions by configuring the **Inbound Rules** on the **MySQL TCP port** to only allow connections from the **MySQL Client Private IPv4 Address** on the **MySQL Server**.
 
-* Run the following command to open the MySQL configuration file to change the **bind address**.
+* Run the following command to open the MySQL configuration file to change the **bind-address**.
 
 ```bash
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf 
@@ -141,7 +141,7 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo mysql
 ```
 
-* Run a security script that sets the password (i.e. `PassWord.1`) for the root user using the following command:
+* Run a security script that sets the password (i.e. **PassWord.1**) for the root user using the following command:
 
 ```bash
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
@@ -193,7 +193,7 @@ The script will give the following prompts and your responses should be as follo
 sudo mysql -u root -p
 ```
 
-* Run the following command to create a user named `donald` with the password `PassWord.1`:
+* Run the following command to create a user named **donald** with the password `PassWord.1`:
 
 ```bash
 CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
@@ -201,19 +201,19 @@ CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 
 *Note that the `%` wildcard after the `@` sign is used to represent any host. This means the user "donald" is allowed to connect to the MySQL Server from any host.*
 
-* Run the following command to create a database called `testing_123`:
+* Run the following command to create a database called **testing_123**:
 
 ```bash
 CREATE DATABASE testing_123;
 ```
 
-* Run the following command to grant all privileges to the user `donald`:
+* Run the following command to grant all privileges to the user **donald**:
 
 ```bash
 GRANT ALL PRIVILEGES ON *.* TO 'donald'@'%' WITH GRANT OPTION;
 ```
 
-*Note that the `*.*` wildcard means all databases and tables. Hence, the command above gives the user `donald` administrative privileges on all databases and tables.*
+*Note that the `*.*` wildcard means all databases and tables. Hence, the command above gives the user **donald** administrative privileges on all databases and tables.*
 
 * Run the following command to apply and make changes effective:
 
@@ -286,4 +286,4 @@ sudo mysql -u <username_of_mysql_server> -h <ip_address_of_mysql_server> -p
 SHOW DATABASES;
 ```
 
-From the image above, you can see the `testing_123` database you created on the MySQL Server. Hence, connection to the remote **MySQL Server** from the **MySQL Client** was successful.
+From the image above, you can see the **testing_123** database you created on the MySQL Server. Hence, connection to the remote **MySQL Server** from the **MySQL Client** was successful.
