@@ -70,7 +70,7 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 
 * Click on the Instance ID of the **mysql_client** Instance and copy the **Private IPv4 address**.
 
-### Step 2: Allow MySQL connection from the MySQL Client IPv4 Address on the MySQL Server
+### Step 2: Allow MySQL connection from the MySQL Client's IPv4 Address on the MySQL Server
 
 * Click on the Instance ID of the **mysql_server** Instance.
 
@@ -127,7 +127,7 @@ In other to listen to all connections from all avaialable network interfaces, th
 
 However, it is best practce to set security precautions such as **Firewall Rules**, **MySQL User Privileges** and in our case, we set security precautions by setting the **Inbound Rules** on the **MySQL TCP port** to only allow conections from the **MySQL-Client** on the **MySQL-Server**.
 
-* Run the following command to change the **bind address**.
+* Run the following command to open the MySQL configuration file to change the **bind address**.
 
 ```bash
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf 
