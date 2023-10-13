@@ -1,4 +1,4 @@
-# Implement a Client-Server Architecture using MySQL Database Management System (DBMS)
+# Implementing a Client-Server Architecture using MySQL Database Management System (DBMS)
 ___
 ## Understanding Client-Server Architecture
 
