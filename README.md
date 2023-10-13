@@ -1,6 +1,7 @@
 # Implement a Client Server Architecture using MySQL Database Management System (DBMS)
 ___
 ## Understanding Client-Server Architecture
+
 Client-Server refers to an architecture in which two or more computers are connected together over a network to send and receive requests between one another. In their communcation, each machine has its own role: the machine sending requests is usally referred as **Client** and the machine responding is called **Server**.
 
 Clients and servers work together in a client-server architecture to enable communication, data exchange and the provision of services over a network. This interaction is a fundamental concept in modern computing and is used in various applications, including web browsing, file sharing and database access. 
@@ -48,6 +49,7 @@ The setup on the diagram above is a typical generic Web Stack architecture (LAMP
 The following steps are taken to implement a basic Client-Server using MySQL Relational Database Management System (RDBMS):
 
 ### Step 1: Create and configure two Linux-Based Virtual Servers (EC2 Instance in AWS)
+
 * On the EC2 Dashboard, click on then Launch Instance button.
 
 * On the Name Box and Amazon Machine Image, type **mysql_server** and **ubuntu** respectively then select **2** as the number of Instances you want to create.
@@ -69,6 +71,7 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 * Click on the Instance ID of the **mysql_client** Instance and copy the **Private IPv4 address**.
 
 ### Step 2: Allow MySQL connection from the MySQL Client IPv4 Address on the MySQL Server
+
 * Click on the Instance ID of the **mysql_server** Instance.
 
 * Click on the Security tab and then click on the Security group.
@@ -81,6 +84,7 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 
 
 ### Step 3: Install MySQL-Server Software on the MySQL-Server Linux Server
+
 * Click on the Instance ID of the **mysql_server**.
 
 * CLick on the **Connect** button and copy the hightlighted commands shown below:
@@ -93,7 +97,7 @@ The following steps are taken to implement a basic Client-Server using MySQL Rel
 cd Downloads
 ```
 
-* Paste the following command to give read permissions to the `.pem` key pai file:
+* Paste the following command to give read permissions to the `.pem` key pair file:
 
 ```bash
 sudo chmod 400 <private-key-pair-name).pem
@@ -224,5 +228,63 @@ sudo systemctl restart mysql
 ```
 
 ### Step 4: Install MySQL-Client Software on the MySQL-Client Linux Server
+* Open another terminal on your computer.
 
-### Step 5:
+* Click on the Instance ID of the **mysql_client**.
+
+* CLick on the **Connect** button and copy the hightlighted commands shown below:
+
+* Open your terminal.
+
+* Go to the directory (i.e. /Downloads) where the `.pem` key pair is stored using the command shown below:
+
+```bash
+cd Downloads
+```
+
+* Paste the following command to give read permissions to the `.pem` key pair file:
+
+```bash
+sudo chmod 400 <private-key-pair-name).pem
+```
+
+* SSH into the MySQL-Client Instance using the command shown below:
+
+```bash
+ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
+```
+
+* Update the list of packages in the package manager.
+
+```bash
+sudo apt update
+```
+
+* Run the MySQL-Client package installation.
+
+```bash
+sudo apt install mysql-client -y
+```
+
+### Step 5: Remotely connecting to the MySQL Server from the MySQL Client
+* On the terminal of the MySQL Server, run the following command to generate the **Private IP address** of the MySQL Server:
+
+```bash
+hostname -i
+```
+
+* Copy the IP address of the MySQL Server.
+
+* On the terminal of the MySQL Client, run the following command to connect to the MySQL Server:
+
+```bash
+sudo mysql -u <user_name_of_mysql_server> -h <ip_address_of_mysql_server> -p
+```
+
+* To check that you have successfully connected to the remote MySQL Server, run the following query:
+
+```bash
+SHOW DATABASES;
+```
+
+From the image above, you can see the **testing_123** database you created on the MySQL Server. Hence, connection to the remote **MySQL Server** from the **MySQL Client** was successful.
