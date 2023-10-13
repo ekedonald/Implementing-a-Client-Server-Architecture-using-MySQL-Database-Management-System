@@ -37,7 +37,7 @@ Here's how clients and servers work together:
 
 * However, stateful communication is also possible, where the server maintains some level of session state between requests.
 
-In the diagram below, a machine that is trying to access a website using a web browser or simply **curl** command is a client and it sends HTTP requests to a web server (Apache, Nginx, IIS or any other server) over the internet.
+The diagram below shows a machine trying to access a website using a web browser or simply **curl** command is a client and it sends HTTP requests to a web server (Apache, Nginx, IIS or any other server) over the internet.
 
 ![illustration 1](./images/illustration%201.png)
 
