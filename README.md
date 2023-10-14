@@ -121,9 +121,15 @@ The following steps are taken to implement a basic Client-Server Architecture us
 
 * Click on the Instance ID of the **mysql_server**.
 
+![mysql server instance](./images/3.%20instance%20id%20mysql%20server.png)
+
 * Click on the **Connect** button.
 
+![connect button server](./images/3.%20connect%20mysql%20server.png)
+
 * Copy the highlighted commands shown below:
+
+![connect to instance server](./images/3.%20connect%20to%20instance%20server.png)
 
 * Open your terminal.
 
@@ -133,11 +139,15 @@ The following steps are taken to implement a basic Client-Server Architecture us
 cd Downloads
 ```
 
+![cd Downloads](./images/3.%20cd%20downloads%20server.png)
+
 * Paste the following command to give read permissions to the `.pem` key pair file:
 
 ```bash
 sudo chmod 400 <private-key-pair-name>.pem
 ```
+
+![chmod pem_key](./images/3.%20chmod%20pem_key.png)
 
 * SSH into the MySQL Server Instance using the command shown below:
 
@@ -145,17 +155,23 @@ sudo chmod 400 <private-key-pair-name>.pem
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
 ```
 
+![ssh pem_key](./images/3.%20ssh%20pem%20key.png)
+
 * Update the list of packages in the package manager.
 
 ```bash
 sudo apt update
 ```
 
+![apt update](./images/3.%20sudo%20apt%20update%20server.png)
+
 * Run the MySQL Server package installation.
 
 ```bash
 sudo apt install mysql-server -y
 ```
+
+![apt install mysql_server](./images/3.%20install%20mysql%20server.png)
 
 In MySQL, the bind-address parameter in the `mysqld.cnf` file is used to specify the IP address on which the MySQL server should listen for incoming connections. Its default setting is `bind-address  = 127.0.0.1`.
 
@@ -169,11 +185,15 @@ However, it is best practice to set security precautions such as **Firewall Rule
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf 
 ```
 
+![sudo vi sql conf.d](./images/3.%20vi%20:etc:mysql%20config%20file.png)
+
 * Log into the MySQL console by running the command shown below:
 
 ```bash
 sudo mysql
 ```
+
+![mysql](./images/3.%20sudo%20mysql.png)
 
 * Run a security script that sets the password (i.e. **PassWord.1**) for the root user using the following command:
 
