@@ -50,7 +50,7 @@ In this case, the Web Server has the role of the Client that connects and reads/
 The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web and Database Servers from Small Page Applications to Large and Complex Portals).
 
 
-## Implement a Client-Server Architecture using MySQL Database Management System (DBMS)
+## Implementing a Client-Server Architecture using MySQL Database Management System (DBMS)
 
 The following steps are taken to implement a basic Client-Server Architecture using MySQL Relational Database Management System (RDBMS):
 
@@ -257,7 +257,6 @@ FLUSH PRIVILEGES;
 
 * Exit the MySQL console.
 
-
 * Restart the MySQL service using the command shown below:
 
 ```bash
@@ -320,7 +319,9 @@ sudo apt install mysql-client -y
 hostname -i
 ```
 
-* Copy the IP address of the MySQL Server.
+![hostname -i](./images/5.%20hostaname%20i.png)
+
+* Copy the IP address of the MySQL Server shown above.
 
 * On the terminal of the MySQL Client, run the following command to connect to the MySQL Server:
 
@@ -328,10 +329,14 @@ hostname -i
 sudo mysql -u <username_of_mysql_server> -h <ip_address_of_mysql_server> -p
 ```
 
+![sudo mysql user h server](./images/5.%20sudo%20mysql%20-u%20username%20-h%20ip_address.png)
+
 * To check that you have successfully connected to the remote MySQL Server, run the following query:
 
 ```bash
 SHOW DATABASES;
 ```
+
+![show database](./images/5.%20show%20databases.png)
 
 From the image above, you can see the **testing_123** database you created on the MySQL Server. Hence, connection to the remote **MySQL Server** from the **MySQL Client** was successful.
