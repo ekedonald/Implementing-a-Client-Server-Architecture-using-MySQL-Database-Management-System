@@ -50,7 +50,11 @@ In this case, the Web Server has the role of the Client that connects and reads/
 The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web and Database Servers from Small Page Applications to Large and Complex Portals).
 
 
-## Implementing a Client-Server Architecture using MySQL Database Management System (DBMS)
+## How To Implement a Client-Server Architecture using MySQL Database Management System (DBMS)
+
+### Prerequisite
+
+1. Ensure you have an AWS account. If you don't have an account, [sign up for AWS here.](https://portal.aws.amazon.com/billing/signup#/start/email)
 
 The following steps are taken to implement a basic Client-Server Architecture using MySQL Relational Database Management System (RDBMS):
 
