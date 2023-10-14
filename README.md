@@ -268,9 +268,15 @@ sudo systemctl restart mysql
 
 * Click on the Instance ID of the **mysql_client**.
 
-* Click on the **Connect** button 
+![client instance id](./images/4.%20instance%20id%20client.png)
+
+* Click on the **Connect** button.
+
+![connect client](./images/4.%20connect%20button.png)
 
 * Copy the highlighted command shown below:
+
+![connecting to instance client](./images/4.%20connect%20to%20instance%20client.png)
 
 * Open another terminal on your computer.
 
@@ -280,11 +286,15 @@ sudo systemctl restart mysql
 cd Downloads
 ```
 
+![cd Downloads](./images/4.%20cd%20downloads.png)
+
 * SSH into the MySQL Client Instance using the command shown below:
 
 ```bash
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
 ```
+
+![ssh client](./images/4.%20ssh%20pem.png)
 
 * Update the list of packages in the package manager.
 
@@ -292,11 +302,15 @@ ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
 sudo apt update
 ```
 
+![apt update](./images/4.%20sudo%20apt%20update.png)
+
 * Run the MySQL Client package installation.
 
 ```bash
 sudo apt install mysql-client -y
 ```
+
+![install mysql client](./images/4.%20sudo%20apt%20install%20mysql%20client.png)
 
 ### Step 5: Remotely connecting to the MySQL Server from the MySQL Client
 
