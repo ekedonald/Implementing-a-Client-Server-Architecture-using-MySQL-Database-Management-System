@@ -257,9 +257,15 @@ The script will give the following prompts and your responses should be as follo
 
 5. Disallow root login remotely `n`.
 
+![disallow root login](./images/3.%20disallow%20root%20login%20remotely.png)
+
 6. Remove the test database and access to it `y`.
 
+![remove test database](./images/3.%20remove%20test%20database.png)
+
 7. Reload privilege tables `y`.
+
+![reload privilege tables](./images/3.%20reload%20privilege%20tables.png)
 
 * Log into the MySQL console with the following command:
 
@@ -267,11 +273,15 @@ The script will give the following prompts and your responses should be as follo
 sudo mysql -u root -p
 ```
 
+![sudo mysql root](./images/3.%20sudo%20mysql%20-u%20root%20-p.png)
+
 * Run the following command to create a user named **donald** with the password `PassWord.1`:
 
 ```bash
 CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 ```
+
+![create user](./images/3.%20create%20user%20donald.png)
 
 *Note that the `%` wildcard after the `@` sign is used to represent any host. This means the user "donald" is allowed to connect to the MySQL Server from any host.*
 
