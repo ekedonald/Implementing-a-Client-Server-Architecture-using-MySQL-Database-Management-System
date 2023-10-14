@@ -291,11 +291,15 @@ CREATE USER 'donald'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 CREATE DATABASE testing_123;
 ```
 
+![create database](./images/3.%20create%20database.png)
+
 * Run the following command to grant all privileges to the user **donald**:
 
 ```bash
 GRANT ALL PRIVILEGES ON *.* TO 'donald'@'%' WITH GRANT OPTION;
 ```
+
+![grant all privileges](./images/3.%20grant%20all%20privileges.png)
 
 *Note that the `*.*` wildcard means all databases and tables. Hence, the command above gives the user **donald** administrative privileges on all databases and tables.*
 
@@ -305,13 +309,19 @@ GRANT ALL PRIVILEGES ON *.* TO 'donald'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
+![flush privileges](./images/3.%20flush%20privileges.png)
+
 * Exit the MySQL console.
+
+![exit](./images/3.%20exit.png)
 
 * Restart the MySQL service using the command shown below:
 
 ```bash
 sudo systemctl restart mysql
 ```
+
+![restart mysql](./images/3.%20systemctl%20restart%20mysql.png)
 
 ### Step 4: Install MySQL Client Software on the MySQL Client Linux Server
 
