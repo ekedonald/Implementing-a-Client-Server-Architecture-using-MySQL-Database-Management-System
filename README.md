@@ -201,11 +201,15 @@ sudo mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 ```
 
+![alter user](./images/3.%20ALTER%20USER.png)
+
 * Exit the MySQL console using the following command:
 
 ```bash
 mysql > exit;
 ```
+
+![exit mysql](./images/3.%20exit.png)
 
 * Enable the MySQL service using the following command:
 
@@ -213,11 +217,15 @@ mysql > exit;
 sudo systemctl enable mysql
 ```
 
+![systemctl enable mysql](./images/3.%20systemctl%20enable%20mysql.png)
+
 * Run the following command to check if the MySQL service is running:
 
 ```bash
 sudo systemctl status mysql
 ```
+
+![systemctl status mysql](./images/3.%20systemctl%20status%20mysql.png)
 
 From the image above, it is evident that the MySQL service is running.
 
@@ -226,14 +234,26 @@ From the image above, it is evident that the MySQL service is running.
 ```bash
 sudo mysql_secure_installation
 ```
+
+![mysql secure installation](./images/3.%20mysql%20secure%20installation.png)
+
 The script will give the following prompts and your responses should be as follows:
+
 1. Validate the password `y`.
+
+![validate password](./images/3.%20validate%20password.png)
 
 2. Select the level of password validation policy that matches the password you set initially, in this case, **2** matches the password I chose hence enter `2`.
 
+![password validation policy](./images/3%20password%20validation%20policy.png)
+
 3. Change the root password `n`.
 
+![change root password](./images/3.%20change%20the%20root%20password.png)
+
 4. Remove anonymous users `n`.
+
+![remove anonymous users](./images/3.%20remove%20anonymous%20users.png)
 
 5. Disallow root login remotely `n`.
 
