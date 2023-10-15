@@ -37,7 +37,7 @@ Here's how clients and servers work together:
 
 * However, stateful communication is also possible, where the server maintains some level of session state between requests.
 
-The diagram below shows a machine trying to access a website using a web browser or simply **curl** command is a client and it sends HTTP requests to a web server (Apache, Nginx, IIS or any other server) over the internet.
+The diagram below shows a machine trying to access a website using a web browser or simply **curl** command as a client and it sends HTTP requests to a web server (Apache, Nginx, IIS or any other server) over the internet.
 
 ![illustration 1](./images/illustration%201.png)
 
@@ -375,7 +375,7 @@ sudo apt install mysql-client -y
 
 ![install mysql client](./images/4.%20sudo%20apt%20install%20mysql%20client.png)
 
-### Step 5: Remotely connecting to the MySQL Server from the MySQL Client
+### Step 5: Remotely connect to the MySQL Server from the MySQL Client
 
 * On the terminal of the MySQL Server, run the following command to generate the **Private IP address** of the MySQL Server:
 
@@ -403,4 +403,4 @@ SHOW DATABASES;
 
 ![show database](./images/5.%20show%20databases.png)
 
-From the image above, you can see the **testing_123** database you created on the MySQL Server. Hence, connection to the remote **MySQL Server** from the **MySQL Client** was successful.
+From the image above, you can see the **testing_123** database you created on the MySQL Server. Hence, the connection to the remote **MySQL Server** from the **MySQL Client** was successful.
