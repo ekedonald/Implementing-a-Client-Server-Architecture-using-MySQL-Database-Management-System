@@ -121,7 +121,7 @@ The following steps are taken to implement a basic Client-Server Architecture us
 ![select mysql and custom client ip address](./images/2.%20select%20mysql%20and%20custom%20ip%20address.png)
 
 
-### Step 3: Install MySQL-Server Software on the MySQL Server Linux Server
+### Step 3: Install the MySQL-Server Software on the MySQL Server Linux Server
 
 * Click on the Instance ID of the **mysql_server**.
 
@@ -327,7 +327,7 @@ sudo systemctl restart mysql
 
 ![restart mysql](./images/3.%20systemctl%20restart%20mysql.png)
 
-### Step 4: Install MySQL Client Software on the MySQL Client Linux Server
+### Step 4: Install the MySQL-Client Software on the MySQL Client Linux Server
 
 * Click on the Instance ID of the **mysql_client**.
 
