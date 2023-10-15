@@ -4,7 +4,7 @@ ___
 
 Client-Server refers to an architecture in which two or more computers are connected together over a network to send and receive requests from one another. In their communication, each machine has its role: the machine sending requests is usually referred to as a **Client** and the machine responding is called a **Server**.
 
-Clients and servers work together in a client-server architecture to enable communication, data exchange and the provision of services over a network. This interaction is a fundamental concept in modern computing and is used in various applications, including web browsing, file sharing and database access. 
+Clients and servers work together in a Client-Server Architecture to enable communication, data exchange and the provision of services over a network. This interaction is a fundamental concept in modern computing and is used in various applications, including web browsing, file sharing and database access. 
 
 A simple diagram of a Web Client-Server Architecture is shown below:
 
@@ -45,7 +45,7 @@ If we extend this concept further and add a Database Server to our architecture,
 
 ![illustration 2](./images/illustration%202.png)
 
-In this case, the Web Server has the role of the Client that connects and reads/writes to/from a Database (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and Database Server close to each other in a local network).
+In this case, the Web Server has the role of the client that connects and reads/writes to/from a Database (DB) Server (MySQL, MongoDB, Oracle or SQL Server) and the communication happens over a Local Network (it can also be Internet Connection but it is a common practice to place the Web Server and Database Server close to each other in a local network).
 
 The setup on the diagram above is a typical generic Web Stack architecture (LAMP, LEMP, MEAN, MERN). This technology can be implemented with many other technologies (i.e. various Web and Database Servers from Small Page Applications to Large and Complex Portals).
 
